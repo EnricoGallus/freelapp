@@ -3,12 +3,19 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
-authenticate :user, lambda { |u| u.admin? } do
-  mount Sidekiq::Web => '/sidekiq'
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
 
-  namespace :madmin do
+    namespace :madmin do
+    end
+
+    namespace :api do
+      namespace :v1 do
+        resources :books, param: :slug
+        resources :book_reviews, only: %i[create destroy]
+      end
+    end
   end
-end
 
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
