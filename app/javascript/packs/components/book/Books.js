@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import axios from "axios";
+import HttpRequester from '../utils/HttpRequester';
 import BookCardView from "./BookCardView";
 
 
@@ -7,18 +7,14 @@ const Books = () => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        axios.get('/api/v1/books.json')
-            .then(resp => {
-                setBooks(resp.data.data);
-            })
-            .catch(resp => console.log(resp));
+        HttpRequester(s => setBooks(s), 'books.json')
     }, [books.length]);
 
     const grid = books.map(item => {
         return (
             <BookCardView
-                key={item.attributes.name}
-                attributes={item.attributes}
+                key={item.name}
+                attributes={item}
             />)
     })
 

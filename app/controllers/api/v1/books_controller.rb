@@ -1,58 +1,49 @@
 module Api
   module V1
     class BooksController < ApplicationController
-      protect_from_forgery with: :null_session
+      before_action :authenticate_user!
+      before_action :set_book, only: %i[show update destroy]
 
       def index
-        books = Book.all
-
-        render json: BookSerializer.new(books, options).serialized_json
+        @books = Book.all
       end
 
-      def show
-        book = Book.find_by(slug: params[:slug])
-
-        render json: BookSerializer.new(book, options).serialized_json
-      end
+      def show; end
 
       def create
-        book = Book.new(airline_params)
+        @book = Book.new(book_params)
 
-        if book.save
-          render json: BookSerializer.new(book).serialized_json
+        if @book.save
+          format.json { render :show, status: :created, location: api_v1_book_path(@book) }
         else
-          render json: { error: book.errors.messages }, status: 422
+          format.json { render json: @book.errors, status: :unprocessable_entity }
         end
       end
 
       def update
-        book = Book.find_by(slug: params[:slug])
-
-        if book.update(airline_params)
-          render json: BookSerializer.new(book, options).serialized_json
+        if @book.update(book_params)
+          format.json { render :show, status: :ok, location: api_v1_book_path(@book) }
         else
-          render json: { error: book.errors.messages }, status: 422
+          format.json { render json: @book.errors, status: :unprocessable_entity }
         end
       end
 
       def destroy
-        book = Book.find_by(slug: params[:slug])
-
-        if book.destroy
-          head :no_content
+        if @book.destroy
+          format.json { head :no_content }
         else
-          render json: { error: book.errors.messages }, status: 422
+          format.json { render json: @book.errors, status: :unprocessable_entity }
         end
       end
 
       private
 
-      def airline_params
+      def book_params
         params.require(:book).permit(:name, :image_url)
       end
 
-      def options
-        @options ||= { include: %i[book_reviews] }
+      def set_book
+        @book = Book.find_by(slug: params[:slug])
       end
     end
   end

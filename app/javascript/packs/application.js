@@ -11,6 +11,8 @@ require("local-time").start()
 
 window.Rails = Rails
 
+require('./components/App')
+
 import 'bootstrap'
 
 document.addEventListener("turbolinks:load", () => {

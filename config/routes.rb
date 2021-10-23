@@ -3,6 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
+  get '/dashboard', to: 'dashboard#index'
 
   namespace :api do
     namespace :v1 do

@@ -5,44 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-airlines = Book.create([
-                            {
-                              name: "United Airlines",
-                              image_url: "https://open-flights.s3.amazonaws.com/United-Airlines.png"
-                            },
-                            {
-                              name: "Southwest",
-                              image_url: "https://open-flights.s3.amazonaws.com/Southwest-Airlines.png"
-                            },
-                            {
-                              name: "Delta",
-                              image_url: "https://open-flights.s3.amazonaws.com/Delta.png"
-                            },
-                            {
-                              name: "Alaska Airlines",
-                              image_url: "https://open-flights.s3.amazonaws.com/Alaska-Airlines.png"
-                            },
-                            {
-                              name: "JetBlue",
-                              image_url: "https://open-flights.s3.amazonaws.com/JetBlue.png"
-                            },
-                            {
-                              name: "American Airlines",
-                              image_url: "https://open-flights.s3.amazonaws.com/American-Airlines.png"
-                            }
-                          ])
+#
+#   User.all.each do |u|
+#     10.times do |i|
+#       u.books.create(title: "To Do Item #{i + 1} for #{u.email}", complete: i % 3 =us= 0 ? true : false)
+#     end
+#   end
 
-reviews = BookReview.create([
-                          {
-                            title: 'Great Airline',
-                            description: 'I had a lovely time',
-                            score: 5,
-                            airline: airlines.first
-                          },
-                          {
-                            title: 'Bad Airline',
-                            description: 'I had a bad time',
-                            score: 1,
-                            airline: airlines.first
-                          }
-                        ])
+2.times do |i|
+  User.create(email: "dashboard-#{i + 1}@example.com", password: "password", password_confirmation: "password")
+end
+
+10.times do |i|
+  Book.create(name: "Book #{i + 1}", image_url: "https://someurl.for.book.#{i + 1}.com")
+end
