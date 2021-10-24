@@ -23,6 +23,12 @@ default: &default
 
 development:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password:
+  pool: 5
   database: freelapp_development
 
   # The specified database role being used to connect to postgres.
@@ -58,6 +64,15 @@ development:
 test:
   <<: *default
   database: freelapp_test
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['POSTGRESQL_HOST'] %>
+  username: <%= ENV['POSTGRESQL_USER_NAME'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
+  pool: 5
+  database: <%= ENV['POSTGRESQL_DB'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
