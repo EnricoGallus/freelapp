@@ -2,21 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import Books from "./book/Books";
+import BookGrid from "./books/BookGrid";
+import BookDetailView from './book/BookDetailView'
 
 const App = () => {
     return (
-        <Switch>
-            <Route exact path="/dashboard" component={Books} />
-            {/*<Route exact path="/books/:slug" component={Book} />*/}
-        </Switch>);
+        <Router>
+            <Switch>
+                <Route exact path="/dashboard" component={BookGrid} />
+                <Route exact path="/books/:slug" component={BookDetailView} />
+            </Switch>
+        </Router>
+    );
 }
 
 document.addEventListener('turbolinks:load', () => {
     const app = document.getElementById('root')
     app && ReactDOM.render(
         <Router>
-            <Route path="/dashboard" component={App}/>
+            <Route path="/" component={App}/>
         </Router>,
         app)
 })

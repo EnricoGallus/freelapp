@@ -11,7 +11,7 @@ const setAxiosHeaders = () => {
 
 const HttpRequester = (action, url) => {
     setAxiosHeaders()
-    axios.get('/api/v1/' + url)
+    axios.get('/api/v1/' + url + '.json')
         .then(resp => action(resp.data))
         .catch(resp => console.log(resp));
 }

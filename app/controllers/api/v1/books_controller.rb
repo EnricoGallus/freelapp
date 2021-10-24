@@ -8,31 +8,41 @@ module Api
         @books = Book.all
       end
 
-      def show; end
+      def show
+        respond_to do |format|
+          format.json { render :show }
+        end
+      end
 
       def create
         @book = Book.new(book_params)
 
-        if @book.save
-          format.json { render :show, status: :created, location: api_v1_book_path(@book) }
-        else
-          format.json { render json: @book.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          if @book.save
+            format.json { render :show, status: :created, location: api_v1_book_path(@book) }
+          else
+            format.json { render json: @book.errors, status: :unprocessable_entity }
+          end
         end
       end
 
       def update
-        if @book.update(book_params)
-          format.json { render :show, status: :ok, location: api_v1_book_path(@book) }
-        else
-          format.json { render json: @book.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          if @book.update(book_params)
+            format.json { render :show, status: :ok, location: api_v1_book_path(@book) }
+          else
+            format.json { render json: @book.errors, status: :unprocessable_entity }
+          end
         end
       end
 
       def destroy
-        if @book.destroy
-          format.json { head :no_content }
-        else
-          format.json { render json: @book.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          if @book.destroy
+            format.json { head :no_content }
+          else
+            format.json { render json: @book.errors, status: :unprocessable_entity }
+          end
         end
       end
 

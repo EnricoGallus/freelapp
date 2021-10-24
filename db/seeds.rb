@@ -13,7 +13,7 @@
 #   end
 
 2.times do |i|
-  User.create(email: "dashboard-#{i + 1}@example.com", password: "password", password_confirmation: "password")
+  User.create(email: "user-#{i + 1}@example.com", password: "password", password_confirmation: "password")
 end
 
 10.times do |i|
