@@ -76,4 +76,6 @@ gem 'sidekiq', '~> 6.2'
 gem 'sitemap_generator', '~> 6.1', '>= 6.1.2'
 gem 'whenever', require: false
 
-gem "fast_jsonapi", "~> 1.5"
+gem "react-rails", "~> 2.6"
+
+gem "foreman", "~> 0.87.2"

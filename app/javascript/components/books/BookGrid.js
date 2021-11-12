@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import HttpRequester from '../utils/HttpRequester';
-import BookCardView from "./BookCardView";
+import BookCardView from "../home/BookCardView";
 
 const BookGrid = () => {
     const [books, setBooks] = useState([]);

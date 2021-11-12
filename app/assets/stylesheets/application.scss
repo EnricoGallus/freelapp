@@ -20,3 +20,14 @@
 body > .alert {
   margin-bottom: 0;
 }
+
+.fullScreenJumbo {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .jumbotron {
+    max-width: 75%;
+  }
+}
