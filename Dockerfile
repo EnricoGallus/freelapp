@@ -1,19 +1,16 @@
-# gets the docker image of ruby 2.5 and lets us build on top of that
-FROM ruby:3.0.2-slim
-
-# install rails dependencies
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs libsqlite3-dev
-
-# create a folder /myapp in the docker container and go into that folder
-RUN mkdir /app
+# syntax=docker/dockerfile:1
+FROM ruby:3.0.2
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 WORKDIR /app
-
-# Copy the Gemfile and Gemfile.lock from app root directory into the /myapp/ folder in the docker container
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
-
-# Run bundle install to install gems inside the gemfile
 RUN bundle install
 
-# Copy the whole app
-COPY . /app
+# Add a script to be executed every time the container starts.
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+EXPOSE 3000
+
+# Configure the main process to run when running the image
+CMD ["rails", "server", "-b", "0.0.0.0"]
