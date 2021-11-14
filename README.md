@@ -21,4 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+# Deployment to AWS
+As described [here](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)
+Or even better, go to the ECR in you AWS account. Select the registry and select show push commands.
