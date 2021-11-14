@@ -2,7 +2,6 @@ version: "3.8"
 services:
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && foreman start"
     ports:
       - "3000:3000"
     env_file:
