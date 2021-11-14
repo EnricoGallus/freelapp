@@ -8,6 +8,8 @@ COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 
+COPY . /app
+
 # Add a script to be executed every time the container starts.
 COPY entrypoint.production.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
