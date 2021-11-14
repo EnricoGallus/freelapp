@@ -16,4 +16,4 @@ ENTRYPOINT ["entrypoint.sh"]
 RUN rails assets:precompile
 
 # Configure the main process to run when running the image
-CMD ["foreman", "start", "-f", "Procfile", "-p", "8080", "-b", "0.0.0.0"]
+CMD ["foreman", "start", "-f", "Procfile"]
