@@ -62,11 +62,6 @@ test:
   <<: *default
   database: freelapp_test
 
-staging:
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
-  database: <%= ENV['POSTGRES_DB'] %>
-
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -89,6 +84,7 @@ staging:
 #
 production:
   <<: *default
-  database: freelapp_production
-  username: freelapp
-  password: <%= ENV['FREELAPP_DATABASE_PASSWORD'] %>
+  host: <%= ENV['POSTGRES_HOST'] %>
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  database: <%= ENV['POSTGRES_DB'] %>
