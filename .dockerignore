@@ -2,18 +2,20 @@
 log/*
 !log/.keep
 node_modules/
-public/assets/
 public/packs/
 public/packs-test/
 storage/*
 !storage/.keep
 tmp/*
 !tmp/.keep
+test/
+spec/
+vendor/
 
+.env*
 .bundle
 .byebug_history
 .dockerignore
-.env*
 config/master.key
 config/credentials/development.key
 config/credentials/production.key
