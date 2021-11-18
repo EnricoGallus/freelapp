@@ -11,11 +11,3 @@
 #       u.books.create(title: "To Do Item #{i + 1} for #{u.email}", complete: i % 3 =us= 0 ? true : false)
 #     end
 #   end
-
-2.times do |i|
-  User.create(email: "user-#{i + 1}@example.com", password: "password", password_confirmation: "password")
-end
-
-10.times do |i|
-  Book.create(name: "Book #{i + 1}", image_url: "https://someurl.for.book.#{i + 1}.com")
-end

@@ -42,5 +42,12 @@
       <jdbc-url>jdbc:postgresql://127.0.0.1:5432/freelapp_test</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="freelapp@production" uuid="d9c1ea55-ed3a-499b-9f6c-49690c358e9e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://freelatax.cxzt8gfwdd56.ap-northeast-1.rds.amazonaws.com:5432/freelapp_production</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
