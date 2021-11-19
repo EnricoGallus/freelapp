@@ -11,3 +11,6 @@
 #       u.books.create(title: "To Do Item #{i + 1} for #{u.email}", complete: i % 3 =us= 0 ? true : false)
 #     end
 #   end
+unless User.any?
+  User.create!(email: 'enrico.gallus@gmail.com', password: 'JipKR_\'7C|Q', password_confirmation: 'JipKR_\'7C|Q')
+end
