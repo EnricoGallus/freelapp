@@ -76,9 +76,11 @@ gem 'sidekiq', '~> 6.2'
 gem 'sitemap_generator', '~> 6.1', '>= 6.1.2'
 gem 'whenever', require: false
 
-gem "react-rails", "~> 2.6"
+gem 'react-rails', '~> 2.6'
 
-gem "foreman", "~> 0.87.2"
+gem 'foreman', '~> 0.87.2'
 
-gem "sentry-ruby", "~> 4.8"
-gem "sentry-rails", "~> 4.8"
+gem 'sentry-ruby', '~> 4.8'
+gem 'sentry-rails', '~> 4.8'
+
+gem 'rails-healthcheck', '~> 1.4'

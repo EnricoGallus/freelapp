@@ -250,6 +250,9 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+    rails-healthcheck (1.4.0)
+      actionpack
+      railties
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
     railties (6.1.4.1)
@@ -402,6 +405,7 @@ DEPENDENCIES
   pundit (~> 2.1)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
+  rails-healthcheck (~> 1.4)
   react-rails (~> 2.6)
   redis (~> 4.2, >= 4.2.2)
   rspec (~> 3.10)
