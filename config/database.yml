@@ -24,9 +24,9 @@ default: &default
 development:
   <<: *default
   host: db
-  username: <%= ENV.fetch("POSTGRES_USER") %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
-  database: <%= ENV.fetch("POSTGRES_DB") %>
+  username: <%= ENV.fetch("POSTGRES_USER", 'enrico') %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD", 'postgres') %>
+  database: <%= ENV.fetch("POSTGRES_DB", 'freelapp_development') %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

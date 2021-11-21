@@ -5,7 +5,7 @@ one:
   image_url: MyString
   slug: MyString
 
-two:
-  name: MyString
-  image_url: MyString
+no_review:
+  name: No Review
+  image_url: test_pic.png
   slug: MyString
