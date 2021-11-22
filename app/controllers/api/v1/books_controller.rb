@@ -8,6 +8,10 @@ module Api
         @books = Book.all
       end
 
+      def new
+        @book = Book.new
+      end
+
       def show
         respond_to do |format|
           format.json { render :show }

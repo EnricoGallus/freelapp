@@ -18,7 +18,7 @@
         <%= f.file_field :avatar, accept:'image/*' %>
       </div>
 
-      <%= image_tag avatar_path(f.object), class: "rounded border shadow-sm d-block mx-auto my-3" %>
+      <%= image_tag user_avatar(resource, 100), class: "rounded-circle border shadow-sm d-block mx-auto my-3" %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div class="alert alert-warning">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
