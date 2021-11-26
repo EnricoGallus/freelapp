@@ -14,7 +14,11 @@
   <dt>Overview:</dt>
   <dd><%= @post.overview %></dd>
   <dt>Thumbnail:</dt>
-  <dd><%= @post.thumbnail %></dd>
+  <dd>
+    <% if @post.thumbnail.attached? %>
+      <%= image_tag(@post.thumbnail.variant(resize: '200x200')) %>
+    <% end %>
+  </dd>
   <dt>Content:</dt>
   <dd><%= @post.content %></dd>
   <dt>User:</dt>

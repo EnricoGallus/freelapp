@@ -4,3 +4,6 @@ var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
 import "bootstrap"
+
+require("trix")
+require("@rails/actiontext")

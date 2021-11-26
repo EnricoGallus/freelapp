@@ -5,9 +5,9 @@ RSpec.describe "posts/edit", type: :view do
     @post = assign(:post, Post.create!(
       title: "MyString",
       overview: "MyString",
-      thumbnail: "MyString",
+      thumbnail: nil,
       content: "MyText",
-      users: nil,
+      user: nil,
       published: false
     ))
   end

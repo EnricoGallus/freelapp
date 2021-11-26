@@ -38,9 +38,13 @@
 
                       <td><%= post.title %></td>
                       <td><%= post.overview %></td>
-                      <td><%= post.thumbnail %></td>
+                      <td>
+                        <% if post.thumbnail.attached? %>
+                          <%= image_tag(post.thumbnail.variant(resize: '200x200')) %>
+                        <% end %>
+                      </td>
                       <td><%= post.content %></td>
-                      <td><%= post.user_id %></td>
+                      <td><%= post.user.email %></td>
                       <td><%= post.published %></td>
           
           
