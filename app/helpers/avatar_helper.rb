@@ -3,7 +3,7 @@ module AvatarHelper
     if user.avatar.attached?
       user.avatar.variant(resize: "#{size}x#{size}!")
     else
-      gravatar_image_url(user.email, size: size)
+      "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}?size=#{size}"
     end
   end
 end
