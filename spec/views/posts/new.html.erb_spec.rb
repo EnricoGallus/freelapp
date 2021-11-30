@@ -1,15 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe "posts/new", type: :view do
+  let(:user) { build :user }
+  let(:thumbnail) { FilesTestHelper.png }
+
   before(:each) do
-    assign(:post, Post.new(
-      title: "MyString",
-      overview: "MyString",
-      thumbnail: "MyString",
-      content: "MyText",
-      users: nil,
-      published: false
-    ))
+    assign(:post,
+           Post.new(
+             title: "MyString",
+             overview: "MyString",
+             thumbnail: thumbnail,
+             content: "MyText",
+             user: user,
+             published: false
+           ))
   end
 
   it "renders new post form" do
@@ -23,9 +27,7 @@ RSpec.describe "posts/new", type: :view do
 
       assert_select "input[name=?]", "post[thumbnail]"
 
-      assert_select "textarea[name=?]", "post[content]"
-
-      assert_select "input[name=?]", "post[users_id]"
+      assert_select "input[name=?]", "post[content]"
 
       assert_select "input[name=?]", "post[published]"
     end

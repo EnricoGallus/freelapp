@@ -1,15 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe "posts/show", type: :view do
+  let(:user) { build :user }
+  let(:thumbnail) { FilesTestHelper.png }
+
   before(:each) do
-    @post = assign(:post, Post.create!(
-      title: "Title",
-      overview: "Overview",
-      thumbnail: "Thumbnail",
-      content: "MyText",
-      users: nil,
-      published: false
-    ))
+    @post = assign(:post,
+                   Post.create!(
+                     title: "Title",
+                     overview: "Overview",
+                     thumbnail: thumbnail,
+                     content: "MyText",
+                     user: user,
+                     published: false
+                   ))
   end
 
   it "renders attributes in <p>" do
