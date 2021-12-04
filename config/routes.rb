@@ -18,9 +18,7 @@ Rails.application.routes.draw do
 
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
-
-    namespace :madmin do
-    end
+    draw :madmin
   end
 
   resources :notifications, only: [:index]
