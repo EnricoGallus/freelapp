@@ -32,7 +32,7 @@ RSpec.describe 'posts/index', type: :view do
     assert_select 'tr>td', text: 'Overview'.to_s, count: 2
     # assert_select 'tr>td', text: 'img[src*='#{FilesTestHelper.png_name}']', count: 2 todo this fails
     assert_select 'tr>td', text: 'MyText'.to_s, count: 2
-    assert_select 'tr>td', text: nil.to_s, count: 2
+    assert_select 'tr>td', text: nil.to_s, count: 6 # todo test for tags and categories
     assert_select 'tr>td', text: false.to_s, count: 2
   end
 end

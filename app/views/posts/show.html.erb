@@ -23,6 +23,10 @@
   <dd><%= @post.content %></dd>
   <dt>User:</dt>
   <dd><%= @post.user.email %></dd>
+  <dt>Categories:</dt>
+  <dd><%= @post.post_categories.map(&:name).join(', ') %></dd>
+  <dt>Tags:</dt>
+  <dd><%= @post.post_tags.map(&:name).join(', ') %></dd>
   <dt>Published:</dt>
   <dd><%= @post.published %></dd>
 </dl>

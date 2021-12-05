@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_26_091203) do
+ActiveRecord::Schema.define(version: 2021_12_04_235857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,32 @@ ActiveRecord::Schema.define(version: 2021_11_26_091203) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
+  end
+
+  create_table "post_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "post_categories_posts", id: false, force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "post_category_id"
+    t.index ["post_category_id"], name: "index_posts_post_categories_on_post_category_id"
+    t.index ["post_id"], name: "index_posts_post_categories_on_post_id"
+  end
+
+  create_table "post_tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "post_tags_posts", id: false, force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "post_tag_id"
+    t.index ["post_id"], name: "index_post_tags_posts_on_post_id"
+    t.index ["post_tag_id"], name: "index_post_tags_posts_on_post_tag_id"
   end
 
   create_table "posts", force: :cascade do |t|

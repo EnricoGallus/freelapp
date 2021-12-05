@@ -1,57 +1,49 @@
-
-
-
 <div class="row">
   <div class="col-sm-6">
     <h1>Posts</h1>
   </div>
 
   <div class="col-sm-6 text-right">
-  <%= link_to new_post_path, class: 'btn btn-primary' do %>
-    Add New Post
-  <% end %>
+    <%= link_to new_post_path, class: 'btn btn-primary' do %>
+      Add New Post
+    <% end %>
   </div>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
-      <tr>
-    
-
-            <th>Title</th>
-            <th>Overview</th>
-            <th>Thumbnail</th>
-            <th>Content</th>
-            <th>Users</th>
-            <th>Published</th>
-            
-          <th></th>
-        
-      </tr>
+    <tr>
+      <th>Title</th>
+      <th>Overview</th>
+      <th>Thumbnail</th>
+      <th>Content</th>
+      <th>Users</th>
+      <th>Categories</th>
+      <th>Tags</th>
+      <th>Published</th>
+      <th></th>
+    </tr>
     </thead>
 
     <tbody>
-      <% @posts.each do |post| %>
-        <%= content_tag :tr, id: dom_id(post), class: dom_class(post) do %>
-          
-
-                      <td><%= post.title %></td>
-                      <td><%= post.overview %></td>
-                      <td>
-                        <% if post.thumbnail.attached? %>
-                          <%= image_tag(post.thumbnail.variant(resize: '200x200')) %>
-                        <% end %>
-                      </td>
-                      <td><%= post.content %></td>
-                      <td><%= post.user.email %></td>
-                      <td><%= post.published %></td>
-          
-          
-            <td><%= link_to 'Show', post %></td>
-          
-        <% end %>
+    <% @posts.each do |post| %>
+      <%= content_tag :tr, id: dom_id(post), class: dom_class(post) do %>
+        <td><%= post.title %></td>
+        <td><%= post.overview %></td>
+        <td>
+          <% if post.thumbnail.attached? %>
+            <%= image_tag(post.thumbnail.variant(resize: '200x200')) %>
+          <% end %>
+        </td>
+        <td><%= post.content %></td>
+        <td><%= post.user.email %></td>
+        <td><%= post.post_categories.map(&:name).join(', ') %></td>
+        <td><%= post.post_tags.map(&:name).join(', ') %></td>
+        <td><%= post.published %></td>
+        <td><%= link_to 'Show', post %></td>
       <% end %>
+    <% end %>
     </tbody>
   </table>
 </div>

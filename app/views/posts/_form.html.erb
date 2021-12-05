@@ -4,9 +4,9 @@
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -29,6 +29,16 @@
   <div class="mb-3">
     <%= form.label :content, class: 'form-label' %>
     <%= form.rich_text_area :content, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :post_categories, class: 'form-label' %>
+    <%= form.collection_select :post_category_ids, PostCategory.all, :id, :name, {}, {:multiple => true, class: 'form-control'} %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :post_tags, class: 'form-label' %>
+    <%= form.collection_select :post_tag_ids, PostTag.all, :id, :name, {}, {:multiple => true, class: 'form-control'} %>
   </div>
 
   <div class="form-check">
