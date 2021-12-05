@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
-  validates :title, presence: true
-  validates :overview, presence: true
-  validates :thumbnail, presence: true
-  validates :content, presence: true
+  include FriendlyId
+  friendly_id :title, use: %i[slugged]
+
+  validates_presence_of :title, :slug, :overview, :thumbnail, :content
 
   belongs_to :user
   has_rich_text :content

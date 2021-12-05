@@ -1,1 +1,80 @@
-<%= react_component("home/Home", { latest_book_review: @latest_book_review }) %>
+<section id="home_introduction" class="fullScreenJumbo" style="background-color: green">
+<div class="jumbotron">
+  <h1 class="display-5 fw-bold">Awesome blog of a common developer.</h1>
+  <h3>Made in Ruby on Rails, React and Bootstrap.</h3>
+  <hr class="my-4"/>
+  <p class="lead">In case you would like to <a href="https://www.enchan.org"
+                                               class="refererLink">discover
+    more</a> about me</p>
+  <p class="lead text-right">Find a rare selection of the <a href="#latestPosts"
+                                                             class="refererLink">latest
+    blogs</a> or
+  </p>
+  <p class="lead">check out <a href="#latestBookReviews" class="refererLink">books</a> i read</p>
+  <p class="lead text-center">Whatever you should decide for, it is a pleasure to have you
+    here.</p>
+</div>
+</section>
+<section id="latestPosts" class="fullScreenJumbo" style="background-color: orange">
+<div class="jumbotron">
+  <h1 class="display-5 fw-bold">Latest posts</h1>
+  <h3>A lot of triathlon and a bit of tech</h3>
+  <hr class="my-4"/>
+  <div class="card-group">
+    <% @latest_blog_posts.each do |post| %>
+      <div class="card">
+        <%= image_tag(post.thumbnail.variant(resize: '200x200'), class: 'card-img-top') %>
+        <div class="card-body">
+          <h5 class="card-title"><%= post.title %></h5>
+          <p class="card-text"><%= post.overview %></p>
+          <%= link_to 'View Post', post_path(post.slug), class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</section>
+<section id="latestBookReviews" class="fullScreenJumbo" style="background-color: blue">
+<div class="jumbotron">
+  <h1 class="display-5 fw-bold">Latest read of mine</h1>
+  <h3>Including reviews</h3>
+  <hr class="my-4"/>
+  <div class="card-group">
+
+  </div>
+</div>
+</section>
+<section id="purpose" class="fullScreenJumbo" style="background-color: black">
+<div class="jumbotron">
+  <h1 class="display-5 fw-bold">Purpose of this Blog.</h1>
+  <h3>There are already so many more Blog's out there and again one more.</h3>
+  <hr class="my-4"/>
+  <div class="text-center">
+    <p class="lead">There are indeed!</p>
+    <p class="lead">And to be honest, it would have been so much easier and definitely
+      faster to
+      create a blog with Wordpress or just post to Medium. Besides, I was never good at
+      writing.
+      When I tried to write a book, I failed completely. I am not a native English speaker
+      either,
+      so writing English is not the easiest thing in the world for me.</p>
+    <p class="lead">As a software developer I spend most of the day in front of the screen
+      tackling
+      against problems and
+      searching for solutions. Especially as a software developer, it's not like fantastic,
+      extraordinary things happen in my life every day. </p>
+    <p class="lead">"So why the heck this blog than?" is what you are going to ask yourself
+      right now, aren't you?</p>
+    <p class="lead">For all the above reasons. I love challenges and want to improve in the
+      things I am
+      not so good at.
+      Usually I'm not a fan of reinventing the wheel, but this blog is something else.
+      My wife has hung a picture above my computer that says:</p>
+    <blockquote class="blockquote">
+      <p class="mb-0">Life is like a bicycle. To keep your balance you must keep
+        moving.</p>
+      <footer class="blockquote-footer">Albert Einstein</footer>
+    </blockquote>
+  </div>
+</div>
+</section>

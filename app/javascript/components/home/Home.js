@@ -1,10 +1,15 @@
 import React, {Fragment} from "react"
 import PropTypes from "prop-types"
 import BookCardView from "./BookCardView";
+import BlogPostView from "./BlogPostView";
 
 const Home = (props) => {
-    const grid = props.latest_book_review.map(item => {
+    const books = props.latest_books.map(item => {
         return <BookCardView key={item.name} attributes={item} />
+    })
+
+    const posts = props.latest_blog_posts.map(item => {
+        return <BlogPostView key={item.name} attributes={item} />
     })
 
     return (
@@ -26,13 +31,23 @@ const Home = (props) => {
                         here.</p>
                 </div>
             </section>
+            <section id="latestPosts" className="fullScreenJumbo" style={{backgroundColor: 'orange'}}>
+                <div className="jumbotron">
+                    <h1 className="display-5 fw-bold">Latest posts</h1>
+                    <h3>A lot of triathlon and a bit of tech</h3>
+                    <hr className="my-4"/>
+                    <div className="card-group">
+                        {posts}
+                    </div>
+                </div>
+            </section>
             <section id="latestBookReviews" className="fullScreenJumbo" style={{backgroundColor: 'blue'}}>
                 <div className="jumbotron">
                     <h1 className="display-5 fw-bold">Latest read of mine</h1>
                     <h3>Including reviews</h3>
                     <hr className="my-4"/>
                     <div className="card-group">
-                        {grid}
+                        {books}
                     </div>
                 </div>
             </section>
@@ -76,7 +91,8 @@ const Home = (props) => {
 
 Home.propTypes =
     {
-        latest_book_review: PropTypes.array
+        latest_books: PropTypes.array,
+        latest_blog_posts: PropTypes.array
     }
 
 export default Home
