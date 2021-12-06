@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_010516) do
+ActiveRecord::Schema.define(version: 2021_12_06_084506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,14 @@ ActiveRecord::Schema.define(version: 2021_12_05_010516) do
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
 
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_organizations_on_user_id"
+  end
+
   create_table "post_categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -143,6 +151,17 @@ ActiveRecord::Schema.define(version: 2021_12_05_010516) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.decimal "hourly_rate"
+    t.bigint "organization_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organization_id"], name: "index_projects_on_organization_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "provider"
@@ -176,6 +195,9 @@ ActiveRecord::Schema.define(version: 2021_12_05_010516) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "book_reviews", "books"
+  add_foreign_key "organizations", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "projects", "organizations"
+  add_foreign_key "projects", "users"
   add_foreign_key "services", "users"
 end
