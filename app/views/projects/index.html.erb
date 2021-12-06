@@ -25,7 +25,7 @@
       <%= content_tag :tr, id: dom_id(project), class: dom_class(project) do %>
         <td><%= link_to project.name, project %></td>
         <td><%= project.hourly_rate %></td>
-        <td><%= project.organization.name %></td>
+        <td><%= link_to project.organization.name, project.organization %></td>
       <% end %>
     <% end %>
     </tbody>

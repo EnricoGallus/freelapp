@@ -23,7 +23,7 @@
 
   <div class="mb-3">
     <%= form.label :organization_id, class: 'form-label' %>
-    <%= form.select :organization_id, current_user.organizations.all.collect {|p| [ p.name, p.id ] }, {}, class: 'form-control' %>
+    <%= form.select :organization_id, current_user.organizations.all.collect {|p| [ p.name, p.id ] }, {}, class: 'form-select' %>
   </div>
 
   <div class="mb-3">

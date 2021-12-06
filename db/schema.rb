@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_084506) do
+ActiveRecord::Schema.define(version: 2021_12_06_091942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,6 +176,32 @@ ActiveRecord::Schema.define(version: 2021_12_06_084506) do
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 
+  create_table "time_entries", force: :cascade do |t|
+    t.string "name"
+    t.bigint "project_id", null: false
+    t.bigint "user_id", null: false
+    t.time "from"
+    t.time "to"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_time_entries_on_project_id"
+    t.index ["user_id"], name: "index_time_entries_on_user_id"
+  end
+
+  create_table "time_sheets", force: :cascade do |t|
+    t.string "name"
+    t.bigint "project_id", null: false
+    t.bigint "user_id", null: false
+    t.time "from"
+    t.time "to"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_time_sheets_on_project_id"
+    t.index ["user_id"], name: "index_time_sheets_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -200,4 +226,8 @@ ActiveRecord::Schema.define(version: 2021_12_06_084506) do
   add_foreign_key "projects", "organizations"
   add_foreign_key "projects", "users"
   add_foreign_key "services", "users"
+  add_foreign_key "time_entries", "projects"
+  add_foreign_key "time_entries", "users"
+  add_foreign_key "time_sheets", "projects"
+  add_foreign_key "time_sheets", "users"
 end

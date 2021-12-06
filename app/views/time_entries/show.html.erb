@@ -1,0 +1,22 @@
+<div class="page-header">
+  <%= link_to time_entries_path, class: 'btn btn-default' do %>
+    All Time_entries
+  <% end %>
+  <%= link_to edit_time_entry_path(@time_entry), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show time_entry</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @time_entry.name %></dd>
+  <dt>Project:</dt>
+  <dd><%= @time_entry.project.name %></dd>
+  <dt>From:</dt>
+  <dd><%= @time_entry.from %></dd>
+  <dt>To:</dt>
+  <dd><%= @time_entry.to %></dd>
+  <dt>Date:</dt>
+  <dd><%= @time_entry.date %></dd>
+</dl>

@@ -1,0 +1,54 @@
+<%= form_with(model: time_entry, local: true) do |form| %>
+  <% if time_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(time_entry.errors.count, "error") %> prohibited this time_entry from being saved:</h2>
+
+      <ul>
+      <% time_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :project_id, class: 'form-label' %>
+    <%= form.select :project_id, current_user.projects.all.collect {|p| [ p.name, p.id ] }, {}, class: 'form-select' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :from, class: 'form-label' %>
+    <%= form.time_select :from %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :to, class: 'form-label' %>
+    <%= form.time_select :to %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :date, class: 'form-label' %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="mb-3">
+    <% if time_entry.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', time_entry, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if time_entry.persisted? %>
+      <%= link_to "Cancel", time_entry, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", time_entries_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

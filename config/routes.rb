@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
+  resources :time_entries
   resources :projects
   resources :organizations
   resources :posts
