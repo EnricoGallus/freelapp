@@ -41,6 +41,12 @@
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v6.1.4.1, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.0, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v10.3.3.0, ruby-3.0.2-p107) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-eventstream (v1.2.0, ruby-3.0.2-p107) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-partitions (v1.539.0, ruby-3.0.2-p107) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-core (v3.124.0, ruby-3.0.2-p107) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-kms (v1.52.0, ruby-3.0.2-p107) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-s3 (v1.109.0, ruby-3.0.2-p107) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sigv4 (v1.4.0, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="babel-source (v5.8.35, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="babel-transpiler (v0.7.0, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.16, ruby-3.0.2-p107) [gem]" level="application" />
@@ -92,6 +98,7 @@
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.8.11, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="image_processing (v1.12.1, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.11.2, ruby-3.0.2-p107) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jmespath (v1.4.0, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jwt (v2.3.0, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.7.0, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="llhttp-ffi (v0.4.0, ruby-3.0.2-p107) [gem]" level="application" />

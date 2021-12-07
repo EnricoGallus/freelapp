@@ -56,8 +56,7 @@ group :test do
   gem 'webdrivers'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'aws-sdk-s3', '~> 1.109'
 gem 'bootstrap', '5.0.0'
 gem 'devise', '~> 4.8', '>= 4.8.0'
 gem 'devise_masquerade', '~> 1.3'
@@ -85,3 +84,7 @@ gem 'sentry-rails', '~> 4.8'
 gem 'sentry-ruby', '~> 4.8'
 
 gem 'rails-healthcheck', '~> 1.4'
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
