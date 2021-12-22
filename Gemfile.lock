@@ -203,8 +203,8 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.2.8)
-    madmin (1.2.5)
-      pagy (>= 3.5, < 5.0)
+    madmin (1.2.6)
+      pagy (>= 3.5, < 6.0)
       rails (>= 6.0.3)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
@@ -222,8 +222,6 @@ GEM
       activesupport (>= 5.2.0)
     nenv (0.3.0)
     nio4r (2.5.8)
-    nokogiri (1.12.5-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     noticed (1.5.0)
@@ -258,7 +256,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
-    pagy (4.11.0)
+    pagy (5.6.6)
     pg (1.2.3)
     popper_js (2.9.3)
     pry (0.14.1)
@@ -450,7 +448,7 @@ DEPENDENCIES
   image_processing
   jbuilder (~> 2.7)
   listen (~> 3.3)
-  madmin
+  madmin (~> 1.2.6)
   mini_magick (~> 4.10, >= 4.10.1)
   name_of_person (~> 1.1)
   noticed (~> 1.2)
